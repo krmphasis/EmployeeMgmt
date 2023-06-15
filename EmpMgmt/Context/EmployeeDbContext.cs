@@ -6,7 +6,6 @@ namespace EmpMgmt.Context
 {
 	public class EmployeeDbContext : DbContext
 	{
-		public 
 		public EmployeeDbContext()
 		{
 		}

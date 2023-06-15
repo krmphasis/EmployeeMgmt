@@ -2,6 +2,7 @@
 using AutoMapper;
 using EmpMgmt.Client;
 using EmpMgmt.Models;
+using EmpMgmt.Models.Data;
 using EmpMgmt.Repository.Interface;
 using EmpMgmt.ServiceInterface;
 
@@ -17,9 +18,9 @@ namespace EmpMgmt.Service.Implementation
             _employeeRepository = employeeRepository;
 		}
 
-        public Task<EmployeeDto> CreateEmployee(EmployeeDto employee)
+        public async Task<EmployeeDto> CreateEmployee(EmployeeDto employeeDto)
         {
-            var employee = _mapper.Map<Employee>(employee);
+            var employee = _mapper.Map<Employee>(employeeDto);
             var createdEmployee = await _employeeRepository.CreateEmployee(employee);
             var createdEmployeeDto = _mapper.Map<EmployeeDto>(createdEmployee);
             return createdEmployeeDto;

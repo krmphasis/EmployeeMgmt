@@ -25,6 +25,13 @@ namespace EmpMgmt.Service.Implementation
             var createdEmployeeDto = _mapper.Map<EmployeeDto>(createdEmployee);
             return createdEmployeeDto;
         }
+
+        public async Task<EmployeeDto> GetEmployee()
+        {
+           var employee = await _employeeRepository.GetEmployee();
+
+           return _mapper.Map<EmployeeDto>(employee);
+        }
     }
 }
 

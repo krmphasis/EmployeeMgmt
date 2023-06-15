@@ -23,6 +23,18 @@ namespace EmpMgmt.Repository.Implementation
                 Email = "test@gmail.com"
             };
         }
+
+        public async Task<Employee> GetEmployee()
+        {
+            await Task.Delay(1);
+            return new Employee
+            {
+                Id = 1,
+                EmployeeName = "Test",
+                Email = "",
+                Department = "IT"
+            };
+        }
     }
 }
 

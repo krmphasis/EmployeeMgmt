@@ -6,6 +6,7 @@ namespace EmpMgmt.Repository.Interface
 	public interface IEmployeeRepository
 	{
         Task<Employee> CreateEmployee(Employee employee);
+        Task<Employee> GetEmployee();
     }
 }
 

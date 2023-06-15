@@ -6,4 +6,41 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="API\Controllers\" />
+    <None Remove="Service\" />
+    <None Remove="Service\Interface\" />
+    <None Remove="Service\Implementation\" />
+    <None Remove="Repository\" />
+    <None Remove="Views\Employee\" />
+    <None Remove="Repository\Interface\" />
+    <None Remove="Models\Data\" />
+    <None Remove="Models\Client\" />
+    <None Remove="Repository\Implementation\" />
+    <None Remove="Context\Config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebUi\Controllers\" />
+    <Folder Include="Service\" />
+    <Folder Include="Service\Interface\" />
+    <Folder Include="Service\Implementation\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Views\Employee\" />
+    <Folder Include="Repository\Interface\" />
+    <Folder Include="Models\Data\" />
+    <Folder Include="Models\Client\" />
+    <Folder Include="Repository\Implementation\" />
+    <Folder Include="Context\Config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmpMgmt.ServiceInterface\EmpMgmt.ServiceInterface.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.7" />
+  </ItemGroup>
 </Project>

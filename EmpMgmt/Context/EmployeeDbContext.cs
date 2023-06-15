@@ -1,8 +1,12 @@
 ﻿using System;
-namespace EmpMgmt.DBContext
+using EmpMgmt.Models.Client;
+using Microsoft.EntityFrameworkCore;
+
+namespace EmpMgmt.Context
 {
-	public class EmployeeDbContext
+	public class EmployeeDbContext : DbContext
 	{
+		public 
 		public EmployeeDbContext()
 		{
 		}

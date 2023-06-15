@@ -4,33 +4,25 @@ using EmpMgmt.Models;
 using Microsoft.AspNetCore.Authentication;
 using EmpMgmt.ServiceInterface;
 using EmpMgmt.API;
+using EmpMgmt.Client;
 
-namespace EmpMgmt.Controllers;
+namespace EmpMgmt.WebUi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class EmployeeController : BaseController<IEmployeeService>
+public class EmployeeController : Controller
 {
-    private readonly ILogger<EmployeeController> _logger;
+    private readonly IEmployeeService _employeeService;
 
-    public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService employeeService):base(employeeService)
+    public EmployeeController(IEmployeeService employeeService)
     {
-        _logger = logger;
+        _employeeService = employeeService;
     }
 
-    public IActionResult Index()
+    [HttpPost]
+    public async Task<IActionResult> CreateEmployee(EmployeeDto employeeDto)
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        var employee = await _employeeService.CreateEmployee(employeeDto);
+        return View(employee);
     }
 }
 
